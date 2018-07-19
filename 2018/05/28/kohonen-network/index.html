@@ -50,7 +50,7 @@ Vi&#x1EC7;c &#x111;&#x1EA7;u ti&#xEA;n, ch&#xFA;ng ta c&#x1EA7;n chu&#x1EA9;n b&
 mnist = input_data.read_data_sets(&quot;MNIST_data/&quot;, one_hot=True)
 train = mnist.train.images.reshape(data.train.images.shape[0], 1, 784)
 </code></pre>
-Ti&#x1EBF;p theo ch&#xFA;ng ta c&#x1EA7;n x&#xE1;c &#x111;&#x1ECB;nh c&#xE1;c si&#xEA;u tham s&#x1ED1; c&#x1EE7;a m&#xF4; h&#xEC;nh. C&#xF3; 2 si&#xEA;u tham s&#x1ED1; quan tr&#x1ECD;ng l&#xE0; h&#x1EC7; s&#x1ED1; h&#x1ECD;c [latex]v&#xE0; s&#x1ED1; l&#x1B0;&#x1EE3;ng nodes &#x111;&#x1EA7;u ra c&#x1EE7;a m&#xF4; h&#xEC;nh hay s&#x1ED1; nh&#xF3;m m&#xE0; ch&#xFA;ng ta c&#x1EA7;n gom nh&#xF3;m. &#x110;&#xF4;&#xED; v&#x1EDB;i t&#x1EAD;p MNIST th&#xEC; ta c&#xF3; 10 nh&#xF3;m &#x1EE9;ng v&#x1EDB;i 10 k&#xFD; s&#x1ED1; kh&#xE1;c nhau. Tuy nhi&#xEA;n, s&#x1ED1; l&#x1B0;&#x1EE3;ng v&#xE0; m&#x1EAD;t &#x111;&#x1ED9; ph&#xE2;n b&#x1ED1; c&#x1EE7;a c&#xE1;c m&#x1EAB;u d&#x1EEF; li&#x1EC7;u r&#x1EA5;t &#x111;a d&#x1EA1;ng, r&#x1EA5;t kh&#xF3; &#x111;&#x1EC3; gom nh&#xF3;m m&#x1ED9;t c&#xE1;ch ch&#xED;nh x&#xE1;c n&#x1EBF;u ch&#x1EC9; ph&#xE2;n ra 10 nh&#xF3;m. Thay v&#xE0;o &#x111;&#xF3; ta c&#xF3; th&#x1EC3; th&#xEA;m c&#xE1;c nh&#xF3;m ph&#x1EE5; nh&#x1B0; s&#x1ED1; 5 nghi&#xEA;n sang tr&#xE1;i, s&#x1ED1; 5 nghi&#xEA;ng sang ph&#x1EA3;i, ... &#x111;&#x1EC3; t&#x103;ng t&#xED;nh hi&#x1EC7;u qu&#x1EA3; trong vi&#x1EC7;c gom nh&#xF3;m. &#x1EDE; &#x111;&#xE2;y, ta s&#x1EBD; th&#x1EED; ch&#x1ECD;n gom th&#xE0;nh 100 nh&#xF3;m kh&#xE1;c nhau v&#x1EDB;i h&#x1EC7; s&#x1ED1; h&#x1ECD;c [latex]= 0.1[/latex].
+Ti&#x1EBF;p theo ch&#xFA;ng ta c&#x1EA7;n x&#xE1;c &#x111;&#x1ECB;nh c&#xE1;c si&#xEA;u tham s&#x1ED1; c&#x1EE7;a m&#xF4; h&#xEC;nh. C&#xF3; 2 si&#xEA;u tham s&#x1ED1; quan tr&#x1ECD;ng l&#xE0; h&#x1EC7; s&#x1ED1; h&#x1ECD;c <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3B1;</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathit" style="margin-right:0.0037em;">&#x3B1;</span></span></span></span> v&#xE0; s&#x1ED1; l&#x1B0;&#x1EE3;ng nodes &#x111;&#x1EA7;u ra c&#x1EE7;a m&#xF4; h&#xEC;nh hay s&#x1ED1; nh&#xF3;m m&#xE0; ch&#xFA;ng ta c&#x1EA7;n gom nh&#xF3;m. &#x110;&#xF4;&#xED; v&#x1EDB;i t&#x1EAD;p MNIST th&#xEC; ta c&#xF3; 10 nh&#xF3;m &#x1EE9;ng v&#x1EDB;i 10 k&#xFD; s&#x1ED1; kh&#xE1;c nhau. Tuy nhi&#xEA;n, s&#x1ED1; l&#x1B0;&#x1EE3;ng v&#xE0; m&#x1EAD;t &#x111;&#x1ED9; ph&#xE2;n b&#x1ED1; c&#x1EE7;a c&#xE1;c m&#x1EAB;u d&#x1EEF; li&#x1EC7;u r&#x1EA5;t &#x111;a d&#x1EA1;ng, r&#x1EA5;t kh&#xF3; &#x111;&#x1EC3; gom nh&#xF3;m m&#x1ED9;t c&#xE1;ch ch&#xED;nh x&#xE1;c n&#x1EBF;u ch&#x1EC9; ph&#xE2;n ra 10 nh&#xF3;m. Thay v&#xE0;o &#x111;&#xF3; ta c&#xF3; th&#x1EC3; th&#xEA;m c&#xE1;c nh&#xF3;m ph&#x1EE5; nh&#x1B0; s&#x1ED1; 5 nghi&#xEA;n sang tr&#xE1;i, s&#x1ED1; 5 nghi&#xEA;ng sang ph&#x1EA3;i, ... &#x111;&#x1EC3; t&#x103;ng t&#xED;nh hi&#x1EC7;u qu&#x1EA3; trong vi&#x1EC7;c gom nh&#xF3;m. &#x1EDE; &#x111;&#xE2;y, ta s&#x1EBD; th&#x1EED; ch&#x1ECD;n gom th&#xE0;nh 100 nh&#xF3;m kh&#xE1;c nhau v&#x1EDB;i h&#x1EC7; s&#x1ED1; h&#x1ECD;c <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3B1;</mi><mo>=</mo><mn>0.1</mn></mrow><annotation encoding="application/x-tex">\alpha = 0.1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathit" style="margin-right:0.0037em;">&#x3B1;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">1</span></span></span></span>.
 <pre class="lang:Python decode:true"><code>alpha = 0.1
 batch_size = 100
 output_nodes = 100
@@ -98,18 +98,9 @@ L&#x1EB7;p l&#x1EA1;i nhi&#x1EC1;u l&#x1EA7;n qu&#xE1; tr&#xEC;nh hu&#x1EA5;n lu
                 W[index] += alpha*(data_batch[j].reshape(784) -W[index])
 </code></pre>
 <h3 id="k&#x1EBF;t-qu&#x1EA3;-hu&#x1EA5;n-luy&#x1EC7;n">K&#x1EBF;t qu&#x1EA3; hu&#x1EA5;n luy&#x1EC7;n</h3>
-H&#xE0;m chuy&#x1EC3;n &#x111;&#x1ED5;i b&#x1ED9; trong s&#x1ED1; v&#x1EC1; th&#xE0;nh m&#x1ED9;t ma tr&#x1EAD;n h&#xEC;nh &#x1EA3;nh &#x111;&#x1EC3; hi&#x1EC3;n th&#x1ECB; k&#x1EBF;t qu&#x1EA3; hu&#x1EA5;n luy&#x1EC7;n.
-<pre class="lang:Python decode:true"><code>def make_image(W):
-    result = np.zeros((W.shape[0] * 28, W.shape[1] * 28))
-    for i in range(W.shape[0]):
-        for j in range(W.shape[1]):
-            for m in range(28):
-                for n in range(28):
-                    result[i*28 + m][j*28 + n] = W[i][j][m][n]
-                    
-    return result
-</code></pre>
-K&#x1EBF;t qu&#x1EA3; tr&#x1B0;&#x1EDB;c v&#xE0; sau khi hu&#x1EA5;n luy&#x1EC7;n.
+<p>H&#xE0;m chuy&#x1EC3;n &#x111;&#x1ED5;i b&#x1ED9; trong s&#x1ED1; v&#x1EC1; th&#xE0;nh m&#x1ED9;t ma tr&#x1EAD;n h&#xEC;nh &#x1EA3;nh &#x111;&#x1EC3; hi&#x1EC3;n th&#x1ECB; k&#x1EBF;t qu&#x1EA3; hu&#x1EA5;n luy&#x1EC7;n. &apos;&apos;&apos;python def make_image(W): result = np.zeros((W.shape[0] * 28, W.shape[1] * 28)) for i in range(W.shape[0]): for j in range(W.shape[1]): for m in range(28): for n in range(28): result[i*28 + m][j*28 + n] = W[i][j][m][n]</p>
+<pre><code>return result</code></pre>
+&apos;&apos;&apos; K&#x1EBF;t qu&#x1EA3; tr&#x1B0;&#x1EDB;c v&#xE0; sau khi hu&#x1EA5;n luy&#x1EC7;n.
 <p align="center">
 <img src="http://nhiethuyettre.net/wp-content/uploads/2017/11/init.png" alt="" width="300" height="300" class="alignnone size-full wp-image-994"> - <img src="http://nhiethuyettre.net/wp-content/uploads/2017/11/result.png" alt="" width="300" height="300" class="alignnone size-full wp-image-996">
 </p>
