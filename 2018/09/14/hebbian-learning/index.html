@@ -32,22 +32,21 @@
 <h2 id="&#x1EE9;ng-d&#x1EE5;ng-c&#x1EE7;a-ph&#x1B0;&#x1A1;ng-ph&#xE1;p-h&#x1ECD;c-d&#x1EF1;a-tr&#xEA;n-hebb-rule">&#x1EE8;ng d&#x1EE5;ng c&#x1EE7;a ph&#x1B0;&#x1A1;ng ph&#xE1;p h&#x1ECD;c d&#x1EF1;a tr&#xEA;n Hebb&apos; rule</h2>
 <h3 id="ph&#xE2;n-t&#xED;ch-th&#xE0;nh-ph&#x1EA7;n-ch&#xED;nh-pca">Ph&#xE2;n t&#xED;ch th&#xE0;nh ph&#x1EA7;n ch&#xED;nh (PCA)</h3>
 <p>Nh&#x1B0; &#x111;&#xE3; m&#xF4; t&#x1EA3;, m&#xF4; h&#xEC;nh Oja learning, m&#x1ED9;t c&#x1EA3;i ti&#x1EBF;n d&#x1EF1;a tr&#xEA;n hebb&apos;s rule, c&#xF3; th&#x1EC3; &#x111;&#x1B0;&#x1EE3;c s&#x1EED; d&#x1EE5;ng &#x111;&#x1EC3; ti&#x1EBF;n h&#xE0;nh ph&#xE2;n t&#xED;ch th&#xE0;nh ph&#x1EA7;n ch&#xED;nh c&#x1EE7;a d&#x1EEF; li&#x1EC7;u. C&#x1EE9; m&#x1ED7;i m&#x1EAB;u h&#x1ECD;c &#x111;&#x1B0;a v&#xE0;o, m&#xF4; h&#xEC;nh s&#x1EBD; &#x111;&#x1B0;&#x1EE3;c c&#x1EAD;p nh&#x1EAD;t tr&#x1ECD;ng s&#x1ED1;. Sau m&#x1ED9;t th&#x1EDD;i gian hu&#x1EA5;n luy&#x1EC7;n, k&#x1EBF;t qu&#x1EA3; &#x111;&#x1EA7;u ra s&#x1EBD; l&#xE0; nh&#x1EEF;ng th&#xE0;nh ph&#x1EA7;n ch&#xED;nh c&#x1EE7;a b&#x1ED9; d&#x1EEF; li&#x1EC7;u.</p>
-<p>L&#x1EA5;y t&#x1EAD;p d&#x1EEF; li&#x1EC7;u hoa iris l&#xE0;m v&#xED; d&#x1EE5;. Ta c&#x1EA7;n r&#xFA;t ra 2 th&#xE0;nh ph&#x1EA7;n ch&#xED;nh t&#x1EEB; 4 &#x111;&#x1EB7;c tr&#x1B0;ng c&#x1EE7;a m&#x1EAB;u d&#x1EEF; li&#x1EC7;u. Ta x&#xE2;y d&#x1EF1;ng h&#xE0;m c&#x1EAD;p nh&#x1EAD;t nh&#x1B0; sau:</p>
+<p>L&#x1EA5;y t&#x1EAD;p d&#x1EEF; li&#x1EC7;u hoa <a href="https://archive.ics.uci.edu/ml/datasets/iris" target="blank">iris</a> l&#xE0;m v&#xED; d&#x1EE5;. Trong b&#x1ED9; d&#x1EEF; li&#x1EC7;u iris, m&#x1ED7;i m&#x1EAB;u d&#x1EEF; li&#x1EC7;u g&#x1ED3;m 4 &#x111;&#x1EB7;c tr&#x1B0;ng l&#xE0; k&#xED;ch th&#x1B0;&#x1EDB;c c&#x1EE7;a c&#xE1;c c&#xE1;nh hoa. Ta c&#x1EA7;n r&#xFA;t ra 2 th&#xE0;nh ph&#x1EA7;n ch&#xED;nh t&#x1EEB; 4 &#x111;&#x1EB7;c tr&#x1B0;ng c&#x1EE7;a m&#x1EAB;u d&#x1EEF; li&#x1EC7;u. Ta x&#xE2;y d&#x1EF1;ng h&#xE0;m c&#x1EAD;p nh&#x1EAD;t nh&#x1B0; sau:</p>
 <pre>def Oja_update(x, W):
     y = np.dot(x, W)
     delta_W = eta*np.dot((x - np.dot(W,y)).reshape(4,1), y.reshape(1,2))
     W += delta_W
     W = W/np.linalg.norm(W, axis=0)
 </pre>
-<p>K&#x1EBF;t qu&#x1EA3; thu &#x111;&#x1B0;&#x1EE3;c nh&#x1B0; h&#xEC;nh b&#xEA;n d&#x1B0;&#x1EDB;i. C&#xF3; th&#x1EC3; th&#x1EA5;y m&#xF4; h&#xEC;nh d&#x1EA7;n h&#x1ED9;i d&#x1EE5; v&#x1EC1; c&#xE1;c th&#xE0;nh ph&#x1EA7;n ch&#xED;nh (c&#xF3; th&#x1EC3; d&#x1EC5; d&#xE0;ng ki&#x1EC3;m tra v&#x1EDB;i k&#x1EBF;t qu&#x1EA3; c&#x1EE7;a PCA th&#xF4;ng th&#x1B0;&#x1EDD;ng d&#x1EF1;a tr&#xEA;n eigen vector v&#xE0; eigen value).</p>
+<p>Trong &#x111;&#xF3; W l&#xE0; ma tr&#x1EAD;n &#xE1;nh x&#x1EA1; sang kh&#xF4;ng gian m&#x1EDB;i v&#x1EDB;i k&#xED;ch th&#x1B0;&#x1EDB;c 4x2. Sau m&#x1ED7;i b&#x1B0;&#x1EDB;c c&#x1EAD;p nh&#x1EAD;t, ta chu&#x1EA9;n h&#xF3;a W v&#x1EC1; l&#x1EA1;i vector k&#xED;ch th&#x1B0;&#x1EDB;c 1. Sau m&#x1ED9;t th&#x1EDD;i gian hu&#x1EA5;n luy&#x1EC7;n, k&#x1EBF;t qu&#x1EA3; thu &#x111;&#x1B0;&#x1EE3;c nh&#x1B0; h&#xEC;nh b&#xEA;n d&#x1B0;&#x1EDB;i. C&#xF3; th&#x1EC3; th&#x1EA5;y m&#xF4; h&#xEC;nh d&#x1EA7;n h&#x1ED9;i d&#x1EE5; v&#x1EC1; c&#xE1;c th&#xE0;nh ph&#x1EA7;n ch&#xED;nh (c&#xF3; th&#x1EC3; d&#x1EC5; d&#xE0;ng ki&#x1EC3;m tra v&#x1EDB;i k&#x1EBF;t qu&#x1EA3; c&#x1EE7;a PCA th&#xF4;ng th&#x1B0;&#x1EDD;ng d&#x1EF1;a tr&#xEA;n eigen vector v&#xE0; eigen value).</p>
 <p align="center">
 </p><p><img src="/images/Oja-PCA-result.png" alt="" width="800"></p>
 S&#x1EF1; thay &#x111;&#x1ED5;i c&#x1EE7;a &#x111;&#x1EA7;u ra c&#x1EE7;a m&#xF4; h&#xEC;nh sau c&#xE1;c l&#x1EA7;n c&#x1EAD;p nh&#x1EAD;t (thay &#x111;&#x1ED5;i d&#x1EA7;n t&#x1EEB; tr&#xE1;i qua ph&#x1EA3;i, t&#x1EEB; tr&#xEA;n xu&#x1ED1;ng d&#x1B0;&#x1EDB;i).
 <p></p>
 <h3 id="ph&#xE2;n-l&#x1EDB;p-&#x111;&#x1ED1;i-t&#x1B0;&#x1EE3;ng">Ph&#xE2;n l&#x1EDB;p &#x111;&#x1ED1;i t&#x1B0;&#x1EE3;ng</h3>
 <p>B&#xE0;i vi&#x1EBF;t tham kh&#x1EA3;o t&#x1EEB; c&#xE1;c ngu&#x1ED3;n</p>
-<p>https://en.wikipedia.org/wiki/Oja%27s_rule</p>
-<p>https://en.wikipedia.org/wiki/Generalized_Hebbian_Algorithm</p>
+<p><a href="https://en.wikipedia.org/wiki/Oja%27s_rule" target="_blank">https://en.wikipedia.org/wiki/Oja%27s_rule</a> <a href="https://en.wikipedia.org/wiki/Generalized_Hebbian_Algorithm" target="_blank">https://en.wikipedia.org/wiki/Generalized_Hebbian_Algorithm</a></p>
 </div></div><div class="post-main post-comment"></div></article><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.css"/><script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script><script src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js"></script><script>$(document).ready(function() {
     $(".fancybox").fancybox();
 });
