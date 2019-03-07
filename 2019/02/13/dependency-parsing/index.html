@@ -1,0 +1,29 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/><meta content="yes" name="apple-mobile-web-app-capable"/><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/><meta content="telephone=no" name="format-detection"/><meta name="description"/><title>Phân tích thành phần phụ thuộc | Lương Quốc An</title><link rel="stylesheet" type="text/css" href="/css/normalize.css"/><link rel="stylesheet" type="text/css" href="/css/highlight.css"/><link rel="stylesheet" type="text/css" href="/css/font.css"/><link rel="stylesheet" type="text/css" href="/css/noise.css"/><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css"/><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"/></head><body><article class="wrapper"><div class="post-main"><div class="nav"><nav class="container"><a class="sidebar-nav-item active" href="/">Home</a><a class="sidebar-nav-item" href="/archives">Archives</a></nav><div class="container post-meta"><div class="post-time">2019-02-13</div></div></div><div class="container post-header"><h1>Phân tích thành phần phụ thuộc</h1></div><div class="container post-content"><a id="more"></a>
+<h2 id="t&#xED;nh-ph&#x1EE5;-thu&#x1ED9;c-trong-ng&#xF4;n-ng&#x1EEF;">T&#xED;nh ph&#x1EE5; thu&#x1ED9;c trong ng&#xF4;n ng&#x1EEF;</h2>
+<p>C&#xE1;c kh&#xE1;i ni&#x1EC7;m trong m&#x1ED9;t c&#xE2;u th&#x1B0;&#x1EDD;ng mang t&#xED;nh ph&#x1EE5; thu&#x1ED9;c v&#xE0; b&#x1ED5; tr&#x1EE3; l&#x1EAB;n nhau. V&#xED; d&#x1EE5; nh&#x1B0; t&#xED;nh t&#x1EEB; b&#x1ED5; ngh&#x129;a cho danh t&#x1EEB;, tr&#x1EA1;ng t&#x1EEB; b&#x1ED5; ngh&#x129;a cho &#x111;&#x1ED9;ng t&#x1EEB;, tr&#x1EA1;ng t&#x1EEB; c&#x169;ng c&#xF3; th&#x1EC3; b&#x1ED5; ngh&#x129;a cho t&#xED;nh t&#x1EEB;, .... Nh&#x1EEF;ng th&#xE0;nh ph&#x1EA7;n n&#xE0;y t&#x1EA1;o n&#xEA;n m&#x1EE9;c &#x111;&#x1ED9; chi ti&#x1EBF;t cho c&#xE2;u v&#xE0; gi&#xFA;p x&#xE1;c &#x111;&#x1ECB;nh ch&#xED;nh x&#xE1;c &#x111;&#x1ED1;i t&#x1B0;&#x1EE3;ng, tr&#xE1;nh nh&#x1EAD;p nh&#x1EB1;n. V&#xED; d&#x1EE5; cho c&#xE2;u:</p>
+<p align="center">
+</p><p>S = &quot;A(<strong>Det</strong>) dog(<strong>Adj</strong>) chases(<strong>Adj</strong>) a(<strong>N</strong>) cat(<strong>V</strong>).&quot;</p>
+<p></p>
+<p>&#x110;&#xE2;y l&#xE0; m&#x1ED9;t c&#xE2;u ho&#xE0;n ch&#x1EC9;nh v&#x1EC1; m&#x1EB7;t c&#xFA; ph&#xE1;p v&#xE0; &#x111;&#x1EE7; ng&#x1EEF; ngh&#x129;a, tuy nhi&#xEA;n x&#xE9;t v&#x1EC1; m&#x1EE9;c &#x111;&#x1ED9; chi ti&#x1EBF;t, c&#xE2;u tr&#xEA;n kh&#xE1; &#x111;&#x1A1;n gi&#x1EA3;n v&#xE0; kh&#xF4;ng &#x111;&#x1EE7; chi ti&#x1EBF;t. N&#xF3;i c&#xE1;ch kh&#xE1;c, ta kh&#xF3; c&#xF3; th&#x1EC3; x&#xE1;c &#x111;&#x1ECB;nh c&#x1EE5; th&#x1EC3; &#x111;&#x1ED1;i t&#x1B0;&#x1EE3;ng &quot;dog&quot;, &quot;cat&quot; &#x111;ang &#x111;&#x1B0;&#x1EE3;c n&#xF3;i t&#x1EDB;i ### Bi&#x1EC3;u di&#x1EC5;n th&#xE0;nh ph&#x1EA7;n ph&#x1EE5; thu&#x1ED9;c</p>
+<h3 id="&#xE1;p-d&#x1EE5;ng-c&#xE2;y-ph&#x1EE5;-thu&#x1ED9;c">&#xC1;p d&#x1EE5;ng c&#xE2;y ph&#x1EE5; thu&#x1ED9;c</h3>
+<h2 id="ph&#xE2;n-t&#xED;ch-th&#xE0;nh-ph&#x1EA7;n-ph&#x1EE5;-thu&#x1ED9;c">Ph&#xE2;n t&#xED;ch th&#xE0;nh ph&#x1EA7;n ph&#x1EE5; thu&#x1ED9;c</h2>
+<h3 id="ph&#xE2;n-t&#xED;ch-d&#x1EF1;a-tr&#xEA;n-ph&#x1B0;&#x1A1;ng-ph&#xE1;p-chuy&#x1EC3;n-d&#x1ECB;ch---transition-base">Ph&#xE2;n t&#xED;ch d&#x1EF1;a tr&#xEA;n ph&#x1B0;&#x1A1;ng ph&#xE1;p chuy&#x1EC3;n d&#x1ECB;ch - transition base</h3>
+<h3 id="ph&#xE2;n-t&#xED;ch-d&#x1EF1;a-tr&#xEA;n-ph&#x1B0;&#x1A1;ng-ph&#xE1;p-&#x111;&#x1ED3;-th&#x1ECB;---graph-base">Ph&#xE2;n t&#xED;ch d&#x1EF1;a tr&#xEA;n ph&#x1B0;&#x1A1;ng ph&#xE1;p &#x111;&#x1ED3; th&#x1ECB; - graph base</h3>
+<p>B&#xE0;i vi&#x1EBF;t tham kh&#x1EA3;o t&#x1EEB; c&#xE1;c ngu&#x1ED3;n</p>
+<p><a href="http://www.nltk.org/book_1ed/ch08.html" target="_blank">Ch&#x1B0;&#x1A1;ng 8, cu&#x1ED1;n s&#xE1;ch <em>Natural Language Processing with Python</em></a></p>
+</div></div><div class="post-main post-comment"><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = 'lqan';
+var disqus_identifier = '2019/02/13/dependency-parsing/';
+var disqus_title = 'Phân tích thành phần phụ thuộc';
+var disqus_url = 'http://yoursite.com/2019/02/13/dependency-parsing/';
+(function() {
+   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+   dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">Blog comments powered by <span class="logo-disqus">Disqus</span></a></div></article><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.css"/><script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script><script src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js"></script><script>$(document).ready(function() {
+    $(".fancybox").fancybox();
+});
+</script></body></html>
