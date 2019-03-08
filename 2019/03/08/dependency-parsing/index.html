@@ -33,19 +33,89 @@ S = &quot;A(<strong>Det</strong>) brown(<strong>Adj</strong>) dog(<strong>N</str
 <li>C&#xE1;c lu&#x1EAD;t chuy&#x1EC3;n d&#x1ECB;ch tr&#x1EA1;ng th&#xE1;i: d&#x1EF1;a tr&#xEA;n tr&#x1EA1;ng th&#xE1;i hi&#x1EC7;n t&#x1EA1;i, c&#xE1;c lu&#x1EAD;t chuy&#x1EC3;n d&#x1ECB;ch s&#x1EBD; quy&#x1EBF;t &#x111;&#x1ECB;nh tr&#x1EA1;ng th&#xE1;i m&#x1EDB;i c&#xF9;ng v&#x1EDB;i c&#xE1;c m&#x1ED1;i quan h&#x1EC7; ph&#x1EE5; thu&#x1ED9;c &#x111;&#x1B0;&#x1EE3;c sinh ra trong qu&#xE1; tr&#xEC;nh chuy&#x1EC3;n d&#x1ECB;ch.</li>
 </ul>
 <p>C&#xE1;c thao t&#xE1;c chuy&#x1EC3;n d&#x1ECB;ch bao g&#x1ED3;m: * <strong>Shift</strong> : di chuy&#x1EC3;n t&#x1EEB; &#x111;&#x1EA7;u ti&#xEA;n trong Buffer v&#xE0;o trong stack (S, <em>w</em>|B, A) -&gt; (S|<em>w</em>, B, A). * <strong>Left-arc</strong>: ki&#x1EC3;m tra quan h&#x1EC7; hai t&#x1EEB; trong top c&#x1EE7;a stack, l&#x1EA5;y t&#x1EEB; &quot;b&#xEA;n tr&#xE1;i&quot; (b&#xEA;n d&#x1B0;&#x1EDB;i) ra kh&#x1ECF;i stack v&#xE0; th&#xEA;m quan h&#x1EC7; v&#xE0;o trong Arc (S|<em>w1</em>|<em>w2</em>, B, A) -&gt; (S|<em>w2</em>, B, A + {<em>w1</em> &lt;- <em>w2</em>}) * <strong>Right-arc</strong>: t&#x1B0;&#x1A1;ng t&#x1EF1; nh&#x1B0; left-arc, ki&#x1EC3;m tra quan h&#x1EC7;n hai t&#x1EEB; trong top c&#x1EE7;a stack, l&#x1EA5;y t&#x1EEB; &quot;b&#xEA;n ph&#x1EA3;i&quot; (b&#xEA;n tr&#xEA;n) ra kh&#x1ECF;i stack v&#xE0; th&#xEA;m quan h&#x1EC7; v&#xE0;o trong Arc Arc (S|<em>w1</em>|<em>w2</em>, B, A) -&gt; (S|<em>w1</em>, B, A + {<em>w1</em> -&gt; <em>w2</em>})</p>
-<p>Sau m&#x1ED9;t lo&#x1EA1;t c&#xE1;c ph&#xE9;p chuy&#x1EC3;n &#x111;&#x1ED5;i, l&#x1EA7;n l&#x1B0;&#x1EE3;t c&#xE1;c t&#x1EEB; trong Buffer s&#x1EBD; chuy&#x1EC3;n d&#x1EA7;n qua Stack th&#xF4;ng qua thao t&#xE1;c Shift. C&#xE1;c t&#x1EEB; trong Stack s&#x1EBD; &#x111;&#x1B0;&#x1EE3;c x&#x1EED; l&#xFD; &#x111;&#x1EC3; x&#xE1;c &#x111;&#x1ECB;nh m&#x1ED1;i quan h&#x1EC7; v&#xE0; th&#xEA;m v&#xE0;o Arc d&#x1EF1;a tr&#xEA;n c&#xE1;c thao t&#xE1;c left-arc v&#xE0; right-arc. V&#xED; d&#x1EE5; cho qu&#xE1; tr&#xEC;nh sinh c&#xE2;y quan h&#x1EC7; cho c&#xE2;u &quot;A dog chases a small cat.&quot; nh&#x1B0; sau:</p>
-<div style="white-space: pre-line;">Action | Stack | Buffer | Arc |
-&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;| [ROOT] | [A, dog, chases, a, cat] | A |
-Shift | [ROOT, A] | [dog, chases, a, cat] | A |
-Shift | [ROOT, A, dog] | [chases, a, cat] | A |
-Left-arc | [ROOT, dog] | [chases, a, cat] | A + {A &lt;- dog} |
-Shift | [ROOT, dog, chases] | [a, cat] | A |
-Left-arc | [ROOT, chases] | [a, cat] | A + {dog &lt;- chases} |
-Shift | [ROOT, chases, a] | [cat] | A |
-Shift | [ROOT, chases, a, cat] | [] | A |
-Left-arc | [ROOT, chases, cat] | [] | A + {a &lt;- cat} |
-Right-arc | [ROOT, chases] | [] | A + {chases -&gt; cat} |
-Right-arc | [ROOT] | [] | A + {ROOT -&gt; chases} |</div>
+<p>Sau m&#x1ED9;t lo&#x1EA1;t c&#xE1;c ph&#xE9;p chuy&#x1EC3;n &#x111;&#x1ED5;i, l&#x1EA7;n l&#x1B0;&#x1EE3;t c&#xE1;c t&#x1EEB; trong Buffer s&#x1EBD; chuy&#x1EC3;n d&#x1EA7;n qua Stack th&#xF4;ng qua thao t&#xE1;c Shift. C&#xE1;c t&#x1EEB; trong Stack s&#x1EBD; &#x111;&#x1B0;&#x1EE3;c x&#x1EED; l&#xFD; &#x111;&#x1EC3; x&#xE1;c &#x111;&#x1ECB;nh m&#x1ED1;i quan h&#x1EC7; v&#xE0; th&#xEA;m v&#xE0;o Arc d&#x1EF1;a tr&#xEA;n c&#xE1;c thao t&#xE1;c left-arc v&#xE0; right-arc. V&#xED; d&#x1EE5; cho qu&#xE1; tr&#xEC;nh sinh c&#xE2;y quan h&#x1EC7; cho c&#xE2;u &quot;A dog chases a cat.&quot; nh&#x1B0; sau:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>Stack</th>
+<th>Buffer</th>
+<th>Arc</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>[ROOT]</td>
+<td>[A, dog, chases, a, cat]</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td>Shift</td>
+<td>[ROOT, A]</td>
+<td>[dog, chases, a, cat]</td>
+<td>A</td>
+</tr>
+<tr class="odd">
+<td>Shift</td>
+<td>[ROOT, A, dog]</td>
+<td>[chases, a, cat]</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td>Left-arc</td>
+<td>[ROOT, dog]</td>
+<td>[chases, a, cat]</td>
+<td>A + {A &lt;- dog}</td>
+</tr>
+<tr class="odd">
+<td>Shift</td>
+<td>[ROOT, dog, chases]</td>
+<td>[a, cat]</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td>Left-arc</td>
+<td>[ROOT, chases]</td>
+<td>[a, cat]</td>
+<td>A + {dog &lt;- chases}</td>
+</tr>
+<tr class="odd">
+<td>Shift</td>
+<td>[ROOT, chases, a]</td>
+<td>[cat]</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td>Shift</td>
+<td>[ROOT, chases, a, cat]</td>
+<td>[]</td>
+<td>A</td>
+</tr>
+<tr class="odd">
+<td>Left-arc</td>
+<td>[ROOT, chases, cat]</td>
+<td>[]</td>
+<td>A + {a &lt;- cat}</td>
+</tr>
+<tr class="even">
+<td>Right-arc</td>
+<td>[ROOT, chases]</td>
+<td>[]</td>
+<td>A + {chases -&gt; cat}</td>
+</tr>
+<tr class="odd">
+<td>Right-arc</td>
+<td>[ROOT]</td>
+<td>[]</td>
+<td>A + {ROOT -&gt; chases}</td>
+</tr>
+</tbody>
+</table>
+<p>D&#x1EF1;a v&#xE0;o c&#xE1;c quan h&#x1EC7; thu &#x111;&#x1B0;&#x1EE3;c trong t&#x1EAD;p Arc, ta c&#xF3; th&#x1EC3; x&#xE2;y d&#x1EF1;ng th&#xE0;nh c&#xE2;y ph&#x1EE5; thu&#x1ED9;c nh&#x1B0; sau:</p>
+<p align="center">
+<img src="/images/non-crossing-dependency.png" alt="dependency tree" height="400">
+</p>
 <h3 id="ph&#xE2;n-t&#xED;ch-d&#x1EF1;a-tr&#xEA;n-ph&#x1B0;&#x1A1;ng-ph&#xE1;p-&#x111;&#x1ED3;-th&#x1ECB;---graph-base">Ph&#xE2;n t&#xED;ch d&#x1EF1;a tr&#xEA;n ph&#x1B0;&#x1A1;ng ph&#xE1;p &#x111;&#x1ED3; th&#x1ECB; - graph base</h3>
 <h2 id="&#xE1;p-d&#x1EE5;ng-c&#xE2;y-ph&#x1EE5;-thu&#x1ED9;c">&#xC1;p d&#x1EE5;ng c&#xE2;y ph&#x1EE5; thu&#x1ED9;c</h2>
 <p>B&#xE0;i vi&#x1EBF;t tham kh&#x1EA3;o t&#x1EEB; c&#xE1;c ngu&#x1ED3;n</p>
